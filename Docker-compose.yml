@@ -1,0 +1,8 @@
+services:
+  playwright-test:
+    image: docker-playwright
+    build: .
+    volumes:
+      - ./:/projectHome
+    environment:
+      - commendToRunTests=npx playwright test api

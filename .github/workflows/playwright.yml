@@ -1,9 +1,11 @@
 name: Playwright Tests leo
+
 on:
   push:
     branches: [ '**' ]
   pull_request:
     branches: [ main ]
+
 jobs:
   playwright-tests:
     timeout-minutes: 15
@@ -19,6 +21,10 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       run: npm run test
+    - name: Run Snyk to check for vulnerabilities
+      uses: snyk/actions/node@master
+      env:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
     - name: upload playwright report
       uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
@@ -33,3 +39,7 @@ jobs:
         name: allure-report
         path: allure-report/
         retention-days: 30
+    - name: ZAP Scan
+      uses: zaproxy/action-full-scan@v0.13.0
+      with:
+        target: 'https://the-internet.herokuapp.com/'
