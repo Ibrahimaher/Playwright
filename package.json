@@ -19,6 +19,7 @@
     "@playwright/test": "^1.62.1",
     "@types/node": "^26.1.1",
     "allure-playwright": "^3.10.2",
+    "dotenv": "^17.4.2",
     "mkdirp": "^3.0.1",
     "rimraf": "^6.1.3"
   }

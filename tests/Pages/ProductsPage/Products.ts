@@ -5,6 +5,7 @@ private readonly backPoroduct=this.page.locator("#add-to-cart-sauce-labs-backpac
 private readonly cart=this.page.locator(".shopping_cart_link");
 async  addProductToCart(){
     await this.clickOnElemnt(this.backPoroduct);
+    //jjjjj
 }
 async  goToCart(){
     await this.clickOnElemnt(this.cart);
