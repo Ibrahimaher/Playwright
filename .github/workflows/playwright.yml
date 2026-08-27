@@ -74,4 +74,4 @@ jobs:
     - name: ZAP Scan
       uses: zaproxy/action-full-scan@v0.13.0
       with:
-        target: 'https://the-internet.herokuapp.com/'
+        target: 'https://www.saucedemo.com/'
